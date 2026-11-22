@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Guilty Gear Strive</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #aura-rc {
+            border: 3px solid #ef4444;
+            background-color: #dfdfe4;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .grupo-rc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <!-- 3. CSS INLINE -->
+            <h2 style="color: #f87171; text-transform: uppercase;">Guilty Gear Strive — Roman Cancel</h2>
+            <p>Gastando 50% da barra de <strong>Tension</strong>, você cancela qualquer animação instantaneamente. Clique para testar cada cor:</p>
+
+            <div class="grupo-rc">
+                <button class="btn-fight" style="background-color: #ef4444;" onclick="ativarRC('red')">Red RC</button>
+                <button class="btn-fight" style="background-color: #3b82f6;" onclick="ativarRC('blue')">Blue RC</button>
+                <button class="btn-fight" style="background-color: #eab308; color: #09090b;" onclick="ativarRC('yellow')">Yellow RC</button>
+                <button class="btn-fight" style="background-color: #a855f7;" onclick="ativarRC('purple')">Purple RC</button>
+            </div>
+
+            <div id="aura-rc">
+                <h3 id="titulo-rc" style="color: #ef4444;">Red Roman Cancel (Ofensivo)</h3>
+                <p id="texto-rc">Ativado quando um golpe acerta ou é defendido. Lança o oponente para o alto permitindo estender combos com muito dano.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>FGC Arena - Guilty Gear Strive Lab</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const tiposRC = {
+            red: {
+                cor: "#ef4444",
+                titulo: "Red Roman Cancel (Ofensivo)",
+                texto: "Ativado quando um golpe acerta ou é defendido. Lança o oponente para o alto permitindo estender combos com muito dano."
+            },
+            blue: {
+                cor: "#3b82f6",
+                titulo: "Blue Roman Cancel (Neutro / Movimentação)",
+                texto: "Ativado no estado neutro ou pulando. Deixa o oponente em câmera lenta por alguns instantes para facilitar aproximação ou mixups."
+            },
+            yellow: {
+                cor: "#eab308",
+                titulo: "Yellow Roman Cancel (Defensivo)",
+                texto: "Ativado enquanto você está defendendo um ataque. Interrompe a pressão do oponente e devolve o turno para você."
+            },
+            purple: {
+                cor: "#a855f7",
+                titulo: "Purple Roman Cancel (Recuperação)",
+                texto: "Ativado durante o início ou recuperação de um golpe que errou (whiff), deixando seu personagem seguro contra punições."
+            }
+        };
+
+        function ativarRC(corEscolhida) {
+            const dados = tiposRC[corEscolhida];
+            const caixa = document.getElementById("aura-rc");
+            const titulo = document.getElementById("titulo-rc");
+
+            caixa.style.borderColor = dados.cor;
+            titulo.style.color = dados.cor;
+            titulo.textContent = dados.titulo;
+            document.getElementById("texto-rc").textContent = dados.texto;
+        }
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href= "arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href ="combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
