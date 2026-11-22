@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - New Challenger</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #avatar-jogador { border-radius: 50%; border: 3px solid #ef4444; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2 style="color: #facc15;">Here Comes a New Challenger! (API RandomUser)</h2>
+            <p>Clique para buscar um adversário online para uma FT5 (First to 5):</p>
+            <button class="btn-fight" onclick="buscarDesafiante()">Procurar Oponente</button>
+            <div id="box-desafiante" style="margin-top: 15px;"></div>
+        </div>
+    </main>
+
+    <footer>FGC Arena - Matchmaking API</footer>
+    <script src="js/main.js"></script>
+    <script>
+        
+async function buscarDesafiante() {
+
+    const box = document.getElementById("box-desafiante");
+
+    box.textContent = "Buscando adversário online...";
+
+    try {
+
+        const resposta = await fetch(
+            "https://randomuser.me/api/"
+        );
+
+        if (!resposta.ok) {
+            throw new Error("Falha na conexão.");
+        }
+
+        const dados = await resposta.json();
+        const user = dados.results[0];
+
+        box.replaceChildren();
+
+        const imagem = document.createElement("img");
+        imagem.src = user.picture.large;
+        imagem.alt = "Avatar do desafiante";
+        imagem.id = "avatar-jogador";
+
+        const nome = document.createElement("h3");
+        nome.textContent = "Nickname: " + user.login.username;
+
+        const regiao = document.createElement("p");
+        regiao.textContent = "Região: " + user.location.country;
+
+        const ping = document.createElement("p");
+        ping.textContent =
+            "Ping estimado: " +
+            (Math.floor(Math.random() * 60) + 15) + "ms";
+
+        box.append(imagem, nome, regiao, ping);
+
+    } catch (erro) {
+
+        box.textContent =
+            "Não foi possível encontrar um desafiante. Tente novamente.";
+
+        console.error(erro);
+
+    }
+}
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href ="arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href= "combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
