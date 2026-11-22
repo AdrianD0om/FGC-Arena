@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Street Fighter 6</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #painel-drive {
+            background-color: #d6d6e0;
+            border: 2px solid #38bdf8;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .barra-drive {
+            display: flex;
+            gap: 6px;
+            margin: 12px 0;
+        }
+
+        .bloco-drive {
+            height: 16px;
+            flex: 1;
+            background-color: #4ade80;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 style="color: #38bdf8; text-transform: uppercase;">Street Fighter 6 — Drive System</h2>
+            <p>O sistema central de SF6 começa com 6 barras de Drive cheias. Se gastar tudo, o jogador entra em estado de <strong>Burnout</strong>.</p>
+
+            <div class="barra-drive" id="medidor-drive">
+                <div class="bloco-drive"></div>
+                <div class="bloco-drive"></div>
+                <div class="bloco-drive"></div>
+                <div class="bloco-drive"></div>
+                <div class="bloco-drive"></div>
+                <div class="bloco-drive"></div>
+            </div>
+
+            <button class="btn-fight" onclick="testarMecanicaSF('impact')">Drive Impact (1 Barra)</button>
+            <button class="btn-fight" onclick="testarMecanicaSF('rush')">Drive Rush Cancel (3 Barras)</button>
+            <button class="btn-fight" style="background-color: #38bdf8; color: lab(#090909);" onclick="testarMecanicaSF('reset')">Recuperar Barras</button>
+
+            <div id="painel-drive">
+                <h3 id="titulo-drive" style="color: #facc15;">Selecione uma técnica acima</h3>
+                <p id="desc-drive">Clique nos botões para ver o custo de barra e a função tática na luta.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>FGC Arena - Street Fighter 6 Lab</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function testarMecanicaSF(tipo) {
+            const blocos = document.querySelectorAll(".bloco-drive");
+            const titulo = document.getElementById("titulo-drive");
+            const desc = document.getElementById("desc-drive");
+
+            blocos.forEach(b => b.style.backgroundColor = "#4ade80");
+
+            if (tipo === "impact") {
+                blocos[5].style.backgroundColor = "#3f3f46";
+                titulo.textContent = "Drive Impact (HP + HK) — Custo: 1 Barra";
+                desc.textContent = "Golpe com armadura que absorve até 2 hits e causa Wall Splat no canto. Pode ser respondido com outro Drive Impact!";
+            } else if (tipo === "rush") {
+                blocos[3].style.backgroundColor = "#3f3f46";
+                blocos[4].style.backgroundColor = "#3f3f46";
+                blocos[5].style.backgroundColor = "#3f3f46";
+                titulo.textContent = "Drive Rush Cancel — Custo: 3 Barras";
+                desc.textContent = "Cancela um golpe normal em corrida verde rápida para estender combos ou manter pressão positiva (+4 frames extras).";
+            } else {
+                titulo.textContent = "Barra de Drive Cheia (6/6)";
+                desc.textContent = "A barra regenera passivamente ao andar para frente ou acertar golpes no oponente.";
+            }
+        }
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href= "arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href ="combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
