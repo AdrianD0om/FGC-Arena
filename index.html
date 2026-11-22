@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Início</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        #hero-arena {
+            background: linear-gradient(135deg, #27272a, #450a0a);
+            text-align: center;
+            padding: 35px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <section id="hero-arena" class="card">
+            <h2 style="color: #facc15; text-transform: uppercase;">Insert Coin to Continue</h2>
+            <p>O portal definitivo sobre jogos de luta, frame data, torneios e cultura arcade.</p>
+            <button class="btn-fight" onclick="iniciarPartida()">Inserir Ficha (Start)</button>
+            <p id="status-ficha" style="margin-top: 15px; font-weight: bold; color: #4ade80;"></p>
+        </section>
+    </main>
+
+    <footer>FGC Arena - Projeto Web HTML, CSS e JS</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        let fichas = 0;
+        function iniciarPartida() {
+            fichas++;
+            document.getElementById("status-ficha").textContent = `CREDIT(S): ${fichas} — READY? FIGHT!`;
+        }
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href= "arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href ="combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+
+</body>
+</html>
