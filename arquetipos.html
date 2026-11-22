@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Arquétipos de Personagens</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #opcoes-estilo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .opcao-quiz {
+            background-color: #27272a;
+            color: #f4f4f5;
+            border: 1px solid #52525b;
+            padding: 12px 16px;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .opcao-quiz:hover {
+            border-color: #38bdf8;
+            background-color: #3f3f46;
+        }
+
+        #resultado-arquetipo {
+            margin-top: 20px;
+            padding: 18px;
+            background-color: #2d2dee;
+            border-left: 4px solid #4ade80;
+            border-radius: 6px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 style="color: #4ade80; text-transform: uppercase;">Qual é o seu Arquétipo na FGC?</h2>
+            <p>Escolha a estratégia que mais combina com a sua mentalidade durante uma luta:</p>
+
+            <div id="opcoes-estilo">
+                <button class="opcao-quiz" onclick="recomendarArquetipo('shoto')">Gosto de equilíbrio: ter projétil, antiaéreo confiável e me adaptar a qualquer situação.</button>
+                <button class="opcao-quiz" onclick="recomendarArquetipo('rushdown')">Gosto de velocidade: pressionar o oponente sem parar e não deixá-lo respirar.</button>
+                <button class="opcao-quiz" onclick="recomendarArquetipo('grappler')">Gosto de força bruta: aguentar pressão para chegar perto e tirar metade da vida em um agarrão.</button>
+                <button class="opcao-quiz" onclick="recomendarArquetipo('zoner')">Gosto de controle de tela: manter o oponente longe com projéteis e golpes de longo alcance.</button>
+            </div>
+
+            <div id="resultado-arquetipo">
+                <h3 id="nome-arquetipo" style="color: #facc15; margin-bottom: 8px;"></h3>
+                <p id="desc-arquetipo"></p>
+                <p id="exemplos-arquetipo" style="margin-top: 8px; color: #38bdf8;"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>FGC Arena - Guia de Arquétipos</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const arquetipos = {
+            shoto: {
+                nome: "Seu Arquétipo: SHOTO (All-Rounder)",
+                desc: "Você é versátil e fundamentado. Tem ferramentas para atacar de longe, controlar o espaço aéreo e punir erros com consistência.",
+                exemplos: "Personagens recomendados: Ryu, Ken, Luke (SF6), Ky Kiske (Guilty Gear), Jin Kazama (Tekken 8)."
+            },
+            rushdown: {
+                nome: "Seu Arquétipo: RUSHDOWN (Pressão Constante)",
+                desc: "Você dita o ritmo da partida. Prefere encurtar a distância rapidamente, aplicar mixups agressivos e forçar erros na defesa adversária.",
+                exemplos: "Personagens recomendados: Cammy, Juri (SF6), Reina (Tekken 8), Giovanna, Chipp (Guilty Gear)."
+            },
+            grappler: {
+                nome: "Seu Arquétipo: GRAPPLER (Agarrador Pesado)",
+                desc: "Você joga com paciência e leitura mental. Uma vez que entra no alcance curto, transforma cada adivinhação em dano massivo.",
+                exemplos: "Personagens recomendados: Zangief, Manon (SF6), King (Tekken 8), Potemkin (Guilty Gear)."
+            },
+            zoner: {
+                nome: "Seu Arquétipo: ZONER (Controle de Espaço)",
+                desc: "Você controla o ritmo à distância. Usa projéteis, armadilhas e membros longos para frustrar qualquer tentativa de aproximação.",
+                exemplos: "Personagens recomendados: Guile, JP, Dhalsim (SF6), Axl Low (Guilty Gear), Quan Chi (MK1)."
+            }
+        };
+
+        function recomendarArquetipo(tipo) {
+            const box = document.getElementById("resultado-arquetipo");
+            const dados = arquetipos[tipo];
+
+            document.getElementById("nome-arquetipo").textContent = dados.nome;
+            document.getElementById("desc-arquetipo").textContent = dados.desc;
+            document.getElementById("exemplos-arquetipo").innerHTML = `<strong>${dados.exemplos}</strong>`;
+
+            box.style.display = "block";
+        }
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href ="combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
