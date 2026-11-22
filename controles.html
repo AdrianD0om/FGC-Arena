@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Controles e Periféricos</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #seletor-hardware {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-controle {
+            background-color: #050505;
+            color: #f4f4f5;
+            border: 2px solid #52525b;
+            padding: 10px 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-controle:hover, .btn-controle.ativo {
+            background-color: #ef4444;
+            border-color: #ef4444;
+            color: #ffffff;
+        }
+
+        .painel-info {
+            background-color: #e8e8eb;
+            border: 1px solid #3f3f46;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .painel-info ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 style="color: #38bdf8; text-transform: uppercase;">Periféricos da FGC: Escolha sua Arma</h2>
+            <p>Clique em um tipo de controle abaixo para comparar ergonomia, precisão e vantagens competitivas:</p>
+
+            <div id="seletor-hardware">
+                <button class="btn-controle ativo" id="btn-pad" onclick="selecionarControle('pad')">Pad (Controle Padrão)</button>
+                <button class="btn-controle" id="btn-stick" onclick="selecionarControle('stick')">Fightstick (Arcade)</button>
+                <button class="btn-controle" id="btn-hitbox" onclick="selecionarControle('hitbox')">Leverless (Hitbox)</button>
+            </div>
+
+            <div class="painel-info">
+                <h3 id="titulo-controle" style="color: #facc15; margin-bottom: 8px;">Pad (DualSense / Controle Xbox)</h3>
+                <p id="desc-controle">O controle tradicional que vem com os consoles. Hoje é amplamente utilizado no topo competitivo mundial.</p>
+                
+                <ul id="lista-detalhes">
+                    <li><strong>Vantagem:</strong> Portátil, acessível e facilita inputs rápidos de dash no D-Pad.</li>
+                    <li><strong>Desvantagem:</strong> Pode causar fadiga no polegar em sessões longas e desgaste rápido da borracha do direcional.</li>
+                    <li><strong>Pro Players Famosos:</strong> MenaRD, Punk, SonicFox.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>FGC Arena - Guia de Hardware e Periféricos</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const dadosControles = {
+            pad: {
+                titulo: "Pad (DualSense / Controle Xbox)",
+                desc: "O controle tradicional que vem com os consoles. Hoje é amplamente utilizado no topo competitivo mundial.",
+                vantagem: "Portátil, acessível e facilita inputs rápidos de dash no D-Pad.",
+                desvantagem: "Pode causar fadiga no polegar em sessões longas e desgaste rápido da borracha do direcional.",
+                pros: "MenaRD, Punk, SonicFox."
+            },
+            stick: {
+                titulo: "Fightstick (Arcade Stick Tradicional)",
+                desc: "Equipado com alavanca (Sanwa ou Koreana) e botões grandes de 30mm, trazendo a experiência clássica dos fliperamas.",
+                vantagem: "Alta durabilidade, fácil customização de peças e excelente ergonomia para movimentos circulares (360°).",
+                desvantagem: "Pesado para transportar em viagens de torneios e exige tempo de adaptação.",
+                pros: "Daigo Umehara (clássico), Tokido (clássico), Arslan Ash."
+            },
+            hitbox: {
+                titulo: "Leverless (Hitbox / Kitsune)",
+                desc: "Substitui a alavanca por 4 botões direcionais dedicados (Esquerda, Baixo, Direita e Pulo no polegar).",
+                vantagem: "Precisão cirúrgica, menor tempo de viagem entre direções e facilidade em combos complexos.",
+                desvantagem: "Curva de aprendizado íngreme para movimentos de meia-lua e 360 graus.",
+                pros: "Daigo Umehara (atual), Tokido (atual), Leshar."
+            }
+        };
+
+        function selecionarControle(tipo) {
+            document.querySelectorAll(".btn-controle").forEach(btn => btn.classList.remove("ativo"));
+            document.getElementById("btn-" + tipo).classList.add("ativo");
+
+            const info = dadosControles[tipo];
+            document.getElementById("titulo-controle").textContent = info.titulo;
+            document.getElementById("desc-controle").textContent = info.desc;
+            document.getElementById("lista-detalhes").innerHTML = `
+                <li><strong>Vantagem:</strong> ${info.vantagem}</li>
+                <li><strong>Desvantagem:</strong> ${info.desvantagem}</li>
+                <li><strong>Pro Players Famosos:</strong> ${info.pros}</li>
+            `;
+        }
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href= "arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href ="combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
