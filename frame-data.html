@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Frame Data</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #resultado-frame { font-size: 1.2rem; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2 style="color: #f87171;">Verificador de Frame Data (On Block)</h2>
+            <p>Digite a vantagem na defesa (ex: -2, -8, +3):</p>
+            <input type="number" id="frame-input" placeholder="Ex: -6" style="padding: 8px; margin-top: 10px;">
+            <button class="btn-fight" onclick="analisarFrame()">Analisar Golpe</button>
+            <p id="resultado-frame"></p>
+        </div>
+    </main>
+
+    <footer>FGC Arena - Frame Data Lab</footer>
+    <script src="js/main.js"></script>
+    <script>
+        function analisarFrame() {
+            const frames = parseInt(document.getElementById("frame-input").value);
+            const res = document.getElementById("resultado-frame");
+            if (isNaN(frames)) {
+                res.textContent = "Insira um número válido.";
+                return;
+            }
+            if (frames >= 0) {
+                res.style.color = "#4ade80";
+                res.textContent = `Plus on Block (${frames > 0 ? '+' + frames : frames}): Sua vez continua!`;
+            } else if (frames >= -3) {
+                res.style.color = "#facc15";
+                res.textContent = `Safe on Block (${frames}): Seguro! O jab mais rápido do jogo tem 4 frames.`;
+            } else {
+                res.style.color = "#ef4444";
+                res.textContent = `Punishable (${frames}): Cuidado! Você pode ser punido.`;
+            }
+        }
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href= "arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href ="combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
