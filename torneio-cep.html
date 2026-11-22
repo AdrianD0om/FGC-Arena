@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Torneio Local</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #local-torneio { margin-top: 15px; color: #38bdf8; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2 style="color: #38bdf8;">Encontrar Arena / Weekly Local (API ViaCEP)</h2>
+            <p>Digite o CEP da sede do torneio presencial:</p>
+            <input type="text" id="cep-arena" placeholder="Ex: 01310100" maxlength="8" style="padding: 8px; margin-top: 10px;">
+            <button class="btn-fight" onclick="buscarArena()">Verificar Endereço</button>
+            <div id="local-torneio"></div>
+        </div>
+    </main>
+
+    <footer>FGC Arena - Eventos Presenciais</footer>
+    <script src="js/main.js"></script>
+    <script>
+        
+async function buscarArena() {
+
+    const cep = document.getElementById("cep-arena")
+        .value.replace(/\D/g, "");
+
+    const resultado = document.getElementById("local-torneio");
+
+    if (!/^\d{8}$/.test(cep)) {
+
+        resultado.textContent =
+            "Digite um CEP válido com 8 números.";
+
+        return;
+    }
+
+    resultado.textContent = "Localizando arena...";
+
+    try {
+
+        const resposta = await fetch(
+            `https://viacep.com.br/ws/${cep}/json/`
+        );
+
+        if (!resposta.ok) {
+            throw new Error("Erro na consulta.");
+        }
+
+        const dados = await resposta.json();
+
+        if (dados.erro) {
+            resultado.textContent = "CEP não encontrado.";
+            return;
+        }
+
+        resultado.replaceChildren();
+
+        const endereco = document.createElement("p");
+        endereco.textContent =
+            `Endereço: ${dados.logradouro || "Não informado"}`;
+
+        const bairro = document.createElement("p");
+        bairro.textContent =
+            `Bairro: ${dados.bairro || "Não informado"}`;
+
+        const cidade = document.createElement("p");
+        cidade.textContent =
+            `Cidade: ${dados.localidade} - ${dados.uf}`;
+
+        resultado.append(endereco, bairro, cidade);
+
+    } catch (erro) {
+
+        resultado.textContent =
+            "Erro ao consultar o CEP. Verifique sua conexão.";
+
+        console.error(erro);
+
+    }
+}
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "glossario.html" target = "_blank">Glossário FGC</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href ="arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href= "combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
