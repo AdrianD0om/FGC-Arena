@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FGC Arena - Glossário FGC</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #lista-termos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tag-termo {
+            background-color: #090909;
+            color: #f4f4f5;
+            border: 1px solid #ef4444;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .tag-termo:hover, .tag-termo.selecionado {
+            background-color: #ef4444;
+            color: #ffffff;
+        }
+
+        .caixa-definicao {
+            background-color: #d3d3dc;
+            border-left: 4px solid #facc15;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .caixa-definicao p {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FGC ARENA</h1>
+        <nav id="menu-fgc"></nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 style="color: #facc15; text-transform: uppercase;">Dicionário da FGC</h2>
+            <p>Clique em um termo abaixo para entender o significado e como ele funciona na partida:</p>
+
+            <div id="lista-termos">
+                <button class="tag-termo selecionado" onclick="mostrarTermo('footsies', this)">Footsies</button>
+                <button class="tag-termo" onclick="mostrarTermo('okizeme', this)">Okizeme (Oki)</button>
+                <button class="tag-termo" onclick="mostrarTermo('whiff', this)">Whiff Punish</button>
+                <button class="tag-termo" onclick="mostrarTermo('mixup', this)">Mixup (50/50)</button>
+                <button class="tag-termo" onclick="mostrarTermo('shimmy', this)">Shimmy</button>
+            </div>
+
+            <div class="caixa-definicao">
+                <h3 id="termo-titulo" style="color: #38bdf8;">Footsies</h3>
+                <p id="termo-significado"><strong>Significado:</strong> O jogo neutro de médio alcance onde os jogadores disputam espaço no chão usando golpes normais rápidos e movimentação.</p>
+                <p id="termo-exemplo"><strong>Na prática:</strong> Dar passos curtos para frente e para trás para provocar o oponente a errar um chute médio e contra-atacar.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>FGC Arena - Glossário Competitivo</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const dicionario = {
+            footsies: {
+                titulo: "Footsies",
+                significado: "O jogo neutro de médio alcance onde os jogadores disputam espaço no chão usando golpes normais rápidos e movimentação.",
+                exemplo: "Dar passos curtos para frente e para trás para provocar o oponente a errar um chute médio e contra-atacar."
+            },
+            okizeme: {
+                titulo: "Okizeme (Oki)",
+                significado: "Termo japonês que significa 'atacar ao levantar'. É a pressão aplicada enquanto o oponente está se levantando do chão após um knockdown.",
+                exemplo: "Derrubar o adversário com uma rasteira e avançar para forçá-lo a adivinhar entre defender um golpe ou escapar de um agarrão."
+            },
+            whiff: {
+                titulo: "Whiff Punish",
+                significado: "Punir um golpe do adversário que passou no vazio (errado) antes que a animação do golpe dele termine.",
+                exemplo: "O oponente solta um soco forte de longe sem acertar você, e você responde imediatamente com um golpe médio cancelado em especial."
+            },
+            mixup: {
+                titulo: "Mixup (50/50)",
+                significado: "Forçar o oponente a escolher entre duas ou mais opções de defesa difíceis de reagir ao mesmo tempo.",
+                exemplo: "Atacar por cima (Overhead) para vencer defesa abaixada, ou atacar por baixo (Low) para vencer defesa em pé."
+            },
+            shimmy: {
+                titulo: "Shimmy",
+                significado: "Fingir que vai aplicar um agarrão de perto e dar um pequeno passo para trás, fazendo o oponente errar o comando de escape de agarrão.",
+                exemplo: "Chegar colado no oponente levantando, recuar meio passo e punir o agarrão vazio dele com um combo completo."
+            }
+        };
+
+        function mostrarTermo(chave, botaoClicado) {
+            document.querySelectorAll(".tag-termo").forEach(b => b.classList.remove("selecionado"));
+            botaoClicado.classList.add("selecionado");
+
+            const item = dicionario[chave];
+            document.getElementById("termo-titulo").textContent = item.titulo;
+            document.getElementById("termo-significado").innerHTML = `<strong>Significado:</strong> ${item.significado}`;
+            document.getElementById("termo-exemplo").innerHTML = `<strong>Na prática:</strong> ${item.exemplo}`;
+        }
+    </script>
+    <h3>Confira por aqui:
+
+    <ul><li><a href= "index.html" target = "_blank">Insira Sua Ficha</a><br></li></ul>
+
+    <ul><li><a href= "street-fighter.html" target = "_blank">Street Fighter</a><br></li></ul>
+
+    <ul><li><a href= "tekken.html" target = "_blank">Tekken</a><br></li></ul>
+
+    <ul><li><a href= "guilty-gear.html" target = "_blank">Guilty Gear</a><br></li></ul>
+
+    <ul><li><a href= "mortal-kombat.html" target = "_blank">Mortal Kombat</a><br></li></ul>
+
+    <ul><li><a href= "controles.html" target = "_blank">Controles</a><br></li></ul>
+
+    <ul><li><a href= "frame-data.html" target = "_blank">Frame Data</a><br></li></ul>
+
+    <ul><li><a href= "torneios.html" target = "_blank">Torneios Mundiais</a><br></li></ul>
+
+    <ul><li><a href= "lendas.html" target = "_blank">EVO Moment 37</a><br></li></ul>
+
+    <ul><li><a href= "arquetipos.html" target = "_blank">Arquetipos de Personagem</a><br></li></ul>
+
+    <ul><li><a href ="combo-trainer.html" target = "_blank">Treinador de Combos</a><br></li></ul>
+
+    <ul><li><a href= "personagem.html" target = "_blank">Novo Desafiante</a><br></li></ul>
+
+    <ul><li><a href= "torneio-cep.html" target = "_blank">Localizador de Torneios</a><br></li></ul>
+
+    <ul><li><a href= "premiação.html" target = "_blank">Conversor de Premiações</a><br></li></ul>
+    </h3>
+</body>
+</html>
